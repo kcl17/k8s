@@ -1,0 +1,16 @@
+K8S
+#connect instance
+sudo su
+sudo apt update
+sudo apt-get install docker.io
+docker version
+sudo systemctl enable docker
+sudo systemctl status docker
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /bin/kind
+sudo kind create cluster
+sudo snap install kubectl --classic
+kubectl get nodes
+docker pull khushichhillar/mydocker:1.0
+kind load docker-image khushichhillar/mydocker:1.0
